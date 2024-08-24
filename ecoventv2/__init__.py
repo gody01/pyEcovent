@@ -677,8 +677,8 @@ class Fan(object):
 
     @filter_timer_countdown.setter
     def filter_timer_countdown(self, input ):
-        val = int(input,16).to_bytes(3,'big')
-        self._filter_timer_countdown = str ( val[2] ) + "d " +str ( val[1] ) + "h " + str ( val[0] ) + "m " 
+        val = int(input,16).to_bytes(4,'big')
+        self._filter_timer_countdown = str ( val[3] * 256 + val[2] ) + "d " +str ( val[1] ) + "h " + str ( val[0] ) + "m " 
 
     @property
     def boost_time (self):

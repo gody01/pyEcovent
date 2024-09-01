@@ -84,7 +84,9 @@ class Fan(object):
     unit_types = {
                     0x0300: 'Vento Expert A50-1/A85-1/A100-1 W V.2', 
                     0x0400: 'Vento Expert Duo A30-1 W V.2', 
-                    0x0500: 'Vento Expert A30 W V.2' }
+                    0x0500: 'Vento Expert A30 W V.2',
+                    0x0E00: 'TwinFresh Style Wifi V.2'
+    }
 
     wifi_operation_modes = {
         1: 'client' ,
@@ -899,7 +901,7 @@ class Fan(object):
     @unit_type.setter
     def unit_type(self, input):
         val = int (input, 16 )
-        self._unit_type = self.unit_types[val]        
+        self._unit_type = self.unit_types.get(val, "Unknown model %s" % val)
 
     @property
     def night_mode_timer (self):

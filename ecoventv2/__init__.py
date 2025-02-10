@@ -55,7 +55,8 @@ class Fan(object):
     airflows = {
         0: 'ventilation',
         1: 'heat_recovery', 
-        2: 'air_supply' 
+        2: 'air_supply',
+        3: 'something' 
     } 
 
     alarms = {
@@ -85,7 +86,9 @@ class Fan(object):
     unit_types = {
                     0x0300: 'Vento Expert A50-1/A85-1/A100-1 W V.2', 
                     0x0400: 'Vento Expert Duo A30-1 W V.2', 
-                    0x0500: 'Vento Expert A30 W V.2' }
+                    0x0500: 'Vento Expert A30 W V.2', 
+                    0x1100: 'Vents Breezy 160-E' 
+    }
 
     wifi_operation_modes = {
         1: 'client' ,
@@ -129,6 +132,7 @@ class Fan(object):
         0x007c: [ 'device_search', None ],
         0x007d: [ 'device_password', None ],
         0x007e: [ 'machine_hours', None ],
+        0x0081: [ 'heater_status', statuses ],
         0x0083: [ 'alarm_status', alarms ],
         0x0085: [ 'cloud_server_state', states ],
         0x0086: [ 'firmware', None ],
@@ -169,6 +173,7 @@ class Fan(object):
     _state = None
     _speed = None
     _boost_status = None
+    _heater_status = None
     _timer_mode = None
     _timer_counter = None
     _humidity_sensor_state = None
@@ -559,6 +564,15 @@ class Fan(object):
         self._boost_status = self.boost_statuses[val]
 
     @property
+    def heater_status(self):
+        return self._heater_status
+
+    @heater_status.setter
+    def heater_status(self, input):
+        val = int (input, 16 )
+        self._heater_status = self.heater_status[val]
+
+    @property
     def timer_mode(self):
         return self._timer_mode
 
@@ -683,7 +697,7 @@ class Fan(object):
     @filter_timer_countdown.setter
     def filter_timer_countdown(self, input ):
         val = int(input,16).to_bytes(3,'big')
-        self._filter_timer_countdown = str ( val[2] ) + "d " +str ( val[1] ) + "h " + str ( val[0] ) + "m " 
+        self._filter_timer_countdown = str ( val[2] ) + "d " + str ( val[1] ) + "h " +str ( val[0] ) + "m "
 
     @property
     def boost_time (self):

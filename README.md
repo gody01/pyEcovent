@@ -63,3 +63,10 @@ Fans from Flexit are identical and should work, but this is not yet tested:
 -- initialize _battery_voltage with 0 not None
 - v 0.9.16
 -- fix undocumented boost_status 2 (delay switching on state)
+- v 0.9.17
+-- enabled write only params (to allow filter timer reset)
+- v 0.9.18
+-- Add some support for Vents Breezy 160-E (from https://pypi.org/project/Vents-Breezy)
+-- fix filter_timer_countdown setter to support 4 bytes input
+- v 0.9.19
+-- revert filter_timer_countdown setter to 3 bytes, to show correct information on Blauberg

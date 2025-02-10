@@ -5,12 +5,12 @@ from ecoventv2 import Fan
 # fan=Fan("10.94.0.106", "1111" , "003A00345842570A" )
 # fan=Fan("10.94.0.105", "1111" , "DEFAULT_DEVICEID" )
 # fan=Fan("10.94.0.255", "1111" , "DEFAULT_DEVICEID" )
-fan=Fan("<broadcast>", "1111" , "DEFAULT_DEVICEID" )
+# fan=Fan("<broadcast>", "1111" , "DEFAULT_DEVICEID" )
 
-ips = fan.search_devices('0.0.0.0')
-print ( ips ) 
+# ips = fan.search_devices('0.0.0.0')
+# print ( ips ) 
 
-# ips=["10.94.0.106"]
+ips=["10.94.0.105"]
 
 for addr in ips:
     print ( addr ) 

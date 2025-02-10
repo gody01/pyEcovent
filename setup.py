@@ -7,9 +7,9 @@ with open("README.md", 'r') as fp:
     long_description = fp.read()
 
 setup(
-    name = 'pyEcoventV2',
+    name = 'pyecoventv2',
     packages = ['ecovent','ecoventv2'],
-    version='0.9.19',
+    version='0.9.20',
     description='Python3 library for single-room energy recovery ventilators from Vents / Blauberg / Flexit',
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -18,7 +18,7 @@ setup(
     author_email='aleksander@flovik.no',
     maintainer='Matjaž Godec',
     maintainer_email = 'matjaz.godec@gmail.com',
-#    url='https://github.com/gody0/pyEcoventV2',
+    url='https://github.com/gody0/pyEcoventV2',
     license="MIT",
     classifiers=[
         'Intended Audience :: Developers',

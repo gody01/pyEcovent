@@ -443,7 +443,7 @@ class Fan(object):
             self.do_func ( self.func['write_return'], request, value )
 
     def parse_response(self,data):
-        pointer = 20 ; # discard header bytes 
+        pointer = 20 ; # discard header bytes
         length = len(data) - 2 ;
         pwd_size = data[pointer] 
         pointer += 1
@@ -696,8 +696,12 @@ class Fan(object):
 
     @filter_timer_countdown.setter
     def filter_timer_countdown(self, input ):
+        if len(input) == 8:
+            input = input[:-2]
+        # print ( "EcoventV2: " + input , file = sys.stderr )
         val = int(input,16).to_bytes(3,'big')
         self._filter_timer_countdown = str ( val[2] ) + "d " + str ( val[1] ) + "h " +str ( val[0] ) + "m "
+        # self._filter_timer_countdown = str(int(input[4:6],16)) + "d " + str(int(input[2:4],16)) + "h " +str(int(input[0:2],16)) + "m "
 
     @property
     def boost_time (self):
@@ -715,7 +719,6 @@ class Fan(object):
     @rtc_time.setter
     def rtc_time(self, input ):
         val = int(input,16).to_bytes(3,'big')
-        
         self._rtc_time = str ( val[2] ) + "h " +str ( val[1] ) + "m " + str ( val[0] ) + "s " 
 
     @property

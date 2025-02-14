@@ -25,9 +25,9 @@ for addr in ips:
 #            print ( fan.params[i][0] + ": " + attr)
 
 
-fan.set_param('airflow','heat_recovery') # 'ventilation', 'heat_recovery', 'air_supply'
-print ( 'airflow: ' + fan.airflow )
-# fan.reset_filter_timer()
+#fan.set_param('airflow','heat_recovery') # 'ventilation', 'heat_recovery', 'air_supply'
+#print ( 'airflow: ' + fan.airflow )
+## fan.reset_filter_timer()
 print ( 'Filter Timer: ' + fan.filter_timer_countdown )
 
 

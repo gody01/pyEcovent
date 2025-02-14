@@ -9,7 +9,7 @@ with open("README.md", 'r') as fp:
 setup(
     name = 'pyecoventv2',
     packages = ['ecovent','ecoventv2'],
-    version='0.9.20',
+    version='0.9.22',
     description='Python3 library for single-room energy recovery ventilators from Vents / Blauberg / Flexit',
     long_description=long_description,
     long_description_content_type="text/markdown",
